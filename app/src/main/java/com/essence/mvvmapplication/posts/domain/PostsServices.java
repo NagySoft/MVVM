@@ -1,6 +1,6 @@
-package com.essence.mvvmapplication.domain;
+package com.essence.mvvmapplication.posts.domain;
 
-import com.essence.mvvmapplication.model.PostModel;
+import com.essence.mvvmapplication.posts.model.PostModel;
 
 import java.util.List;
 

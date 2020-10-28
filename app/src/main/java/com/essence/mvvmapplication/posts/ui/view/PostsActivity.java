@@ -1,25 +1,29 @@
-package com.essence.mvvmapplication.ui.posts.view;
+package com.essence.mvvmapplication.posts.ui.view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.essence.mvvmapplication.MVVMApplication;
 import com.essence.mvvmapplication.R;
 import com.essence.mvvmapplication.databinding.ActivityMainBinding;
-import com.essence.mvvmapplication.model.PostModel;
-import com.essence.mvvmapplication.ui.posts.viewmodel.PostsViewModel;
+import com.essence.mvvmapplication.posts.model.PostModel;
+import com.essence.mvvmapplication.posts.ui.viewmodel.PostsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+import javax.inject.Inject;
+
+public class PostsActivity extends AppCompatActivity {
+    private static final String TAG = PostsActivity.class.getSimpleName();
+
+    @Inject
+    PostsViewModel postsViewModel;
 
     private List<PostModel> postModels;
-    private PostsViewModel postsViewModel;
     private PostsAdapter postsAdapter;
 
     @Override
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         postsAdapter = new PostsAdapter(postModels);
         binding.recyclerView.setAdapter(postsAdapter);
 
-        postsViewModel = new ViewModelProvider(this).get(PostsViewModel.class);
+        MVVMApplication.getApplicationComponent().postsComponent().create().inject(this);
         postsViewModel.getLiveData().observe(this, posts -> {
             this.postModels.clear();
             this.postModels.addAll(posts);

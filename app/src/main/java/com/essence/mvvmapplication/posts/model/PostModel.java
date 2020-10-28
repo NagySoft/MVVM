@@ -1,4 +1,4 @@
-package com.essence.mvvmapplication.model;
+package com.essence.mvvmapplication.posts.model;
 
 public class PostModel {
     private int id;

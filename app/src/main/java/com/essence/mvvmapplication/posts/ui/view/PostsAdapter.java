@@ -1,4 +1,4 @@
-package com.essence.mvvmapplication.ui.posts.view;
+package com.essence.mvvmapplication.posts.ui.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.essence.mvvmapplication.model.PostModel;
+import com.essence.mvvmapplication.posts.model.PostModel;
 import com.essence.mvvmapplication.R;
 
 import java.util.List;
