@@ -4,10 +4,10 @@ import com.essence.mvvmapplication.posts.model.PostModel;
 
 import java.util.List;
 
-import retrofit2.Call;
+import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
 
 public interface PostsServices {
     @GET("posts")
-    Call<List<PostModel>> getPosts();
+    Observable<List<PostModel>> getPosts();
 }

@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.essence.mvvmapplication.posts.model.PostModel;
 import com.essence.mvvmapplication.R;
+import com.essence.mvvmapplication.posts.model.PostModel;
 
 import java.util.List;
 

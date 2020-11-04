@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.essence.mvvmapplication.MVVMApplication;
 import com.essence.mvvmapplication.R;
 import com.essence.mvvmapplication.databinding.ActivityMainBinding;
 import com.essence.mvvmapplication.posts.model.PostModel;
@@ -16,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import static com.essence.mvvmapplication.MVVMApplication.getApplicationComponent;
 
 public class PostsActivity extends AppCompatActivity {
     private static final String TAG = PostsActivity.class.getSimpleName();
@@ -38,7 +39,7 @@ public class PostsActivity extends AppCompatActivity {
         postsAdapter = new PostsAdapter(postModels);
         binding.recyclerView.setAdapter(postsAdapter);
 
-        MVVMApplication.getApplicationComponent().postsComponent().create().inject(this);
+        getApplicationComponent().postsComponent().create().inject(this);
         postsViewModel.getLiveData().observe(this, posts -> {
             this.postModels.clear();
             this.postModels.addAll(posts);
@@ -49,5 +50,6 @@ public class PostsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        postsViewModel.getPost();
     }
 }
