@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 30
@@ -67,4 +68,10 @@ dependencies {
     def rxjava_dependency = "3.0.0"
     implementation "io.reactivex.rxjava3:rxandroid:$rxjava_dependency"
     implementation "io.reactivex.rxjava3:rxjava:$rxjava_dependency"
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
